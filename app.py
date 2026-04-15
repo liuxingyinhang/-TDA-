@@ -27,6 +27,18 @@ plt.rcParams.update({'figure.max_open_warning': 50})
 from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
+# ========== 兼容新版 scikit-learn 的 monkey-patch ==========
+import sklearn.tree
+
+def _patch_sklearn_tree():
+    """为旧版模型补充新版 sklearn 所需的属性"""
+    if not hasattr(sklearn.tree.DecisionTreeClassifier, "monotonic_cst"):
+        sklearn.tree.DecisionTreeClassifier.monotonic_cst = None
+    if not hasattr(sklearn.tree.DecisionTreeRegressor, "monotonic_cst"):
+        sklearn.tree.DecisionTreeRegressor.monotonic_cst = None
+
+_patch_sklearn_tree()
+# ============================================================
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = CURRENT_DIR
