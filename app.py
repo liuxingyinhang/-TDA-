@@ -6,7 +6,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import streamlit.components.v1 as components
 import kmapper as km
-from rlPyCairo.pil2pict import background
 from sklearn.cluster import DBSCAN
 from sklearn.decomposition import PCA
 import matplotlib.font_manager as fm
