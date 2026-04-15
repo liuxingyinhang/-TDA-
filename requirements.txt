@@ -1,7 +1,7 @@
 streamlit
 pandas
 numpy
-scikit-learn
+scikit-learn==1.2.2
 matplotlib
 seaborn
 scipy
@@ -9,3 +9,4 @@ joblib
 shap
 networkx
 kmapper
+umap-learn
