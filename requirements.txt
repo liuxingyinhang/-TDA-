@@ -4,4 +4,8 @@ numpy
 scikit-learn
 matplotlib
 seaborn
-kmapper
+scipy
+joblib
+shap
+networkx
+kepler-mapper
