@@ -8,4 +8,4 @@ scipy
 joblib
 shap
 networkx
-kepler-mapper
+kmapper
