@@ -948,6 +948,10 @@ elif page == "🛡️ 多模型智能诊断":
                     main_preds = pipeline_rf.predict(X_imp)
                     main_probs = pipeline_rf.predict_proba(X_imp)
 
+                    # === 确保概率值在 0–1 范围内 ===
+                    row_sums = main_probs.sum(axis=1, keepdims=True)
+                    main_probs = np.divide(main_probs, row_sums, out=np.zeros_like(main_probs), where=row_sums != 0)
+
                     label_map = {0: "Normal", 1: "SLE", 2: "SLE+LN"}
                     target_map = {"Normal": 0, "SLE": 1, "SLE+LN": 2}
 
